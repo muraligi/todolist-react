@@ -1,5 +1,5 @@
 const Child = () => {
-    return <>Hi</>
+    return <>Hello</>
 }
 
 export default Child;
