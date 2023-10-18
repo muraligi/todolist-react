@@ -68,6 +68,10 @@ const App = () => {
     return <div className="task-count">Total tasks {todos.length}, completed {todos.filter(t => t.completed === true).length}</div>;
   };
 
+  const nolist = () => {
+    return <div className="no-list">your todos list empty</div>;
+  }
+
   let filteredTodos;
 
   switch(filteredOn){
@@ -107,6 +111,8 @@ const App = () => {
           <button onClick={() => setFilteredOn('all')} className="all">All</button>
           <button onClick={() => setFilteredOn('active')} className="all act">Active</button>
           <button onClick={() => setFilteredOn('complete')} className="all cmpld">Completed</button>
+          {todos.length ?
+          <div>
           {filteredTodos.map((todo) => (
             <li className="list-view" key={todo.id}>
               <button
@@ -137,6 +143,7 @@ const App = () => {
               </div>
             </li>
           ))}
+          </div>: nolist()}
         </div>
       </div>
       <div className="bottom-view"></div>
